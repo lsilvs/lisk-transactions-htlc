@@ -1,0 +1,53 @@
+{
+	"name": "lisk-transactions-htlc",
+	"version": "0.1.0",
+	"description": "Lisk custom transactions that implement HTLC enabling cross-chain atomic swap",
+	"author": "Lucas Silvestre <lukas.silvestre@gmail.com>",
+	"license": "Apache-2.0",
+	"keywords": [
+		"lisk",
+		"blockchain",
+		"htlc"
+	],
+	"homepage": "https://github.com/lsilvs/lisk-transactions-htlc",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lsilvs/lisk-transactions-htlc.git"
+	},
+	"bugs": {
+		"url": "https://github.com/lsilvs/lisk-transactions-htlc/issues"
+	},
+	"engines": {
+		"node": ">=8.10 <=10",
+		"npm": ">=5"
+	},
+	"main": "dist/index.js",
+	"scripts": {
+		"transpile": "tsc",
+		"format": "prettier --write '**/*'",
+		"lint": "tslint --format verbose --project .",
+		"lint:fix": "npm run lint -- --fix",
+		"prebuild": "rm -r dist/* || mkdir dist || true",
+		"build": "npm run transpile",
+		"build:check": "node -e \"require('./dist')\"",
+		"prepublishOnly": "npm run lint && npm run build && npm run build:check"
+	},
+	"dependencies": {
+		"@liskhq/bignum": "1.3.1",
+		"@liskhq/lisk-cryptography": "2.2.0",
+		"@liskhq/lisk-transactions": "2.3.1",
+		"@types/node": "10.12.21"
+	},
+	"devDependencies": {
+		"@types/node": "10.10.1",
+		"prettier": "1.16.4",
+		"source-map-support": "0.5.10",
+		"ts-node": "8.0.2",
+		"tsconfig-paths": "3.8.0",
+		"tslint": "5.12.1",
+		"tslint-config-prettier": "1.18.0",
+		"tslint-immutable": "5.1.2",
+		"typescript": "3.3.1",
+		"uglify-es": "3.3.9"
+	}
+}
